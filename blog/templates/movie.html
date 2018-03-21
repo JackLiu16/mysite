@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% csrf_token %}
+    {% load staticfiles %}
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>movie</title>
+    <style type="text/css"> 
+        body {background-image:url('{% static "images/movie.jpg" %}');
+            background-size:cover;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+            
+                }
+        .sdiv{
+            opacity: 1.0;
+            display: table;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .bodystyle{
+        opacity: 0.7;
+        height:100%;
+        width:100%;
+        position:absolute;
+        }
+        
+        h3{text-align:center;}
+    </style>
+</head>
+<body>
+    <div>
+        
+        <div class="sdiv">
+            <video   width="840px" height="560px" controls="controls">
+                <source src="/static/movie/movie.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+</body>
+</html>
+

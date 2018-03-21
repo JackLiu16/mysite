@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% csrf_token %}
+    {% load staticfiles %}
+    <script src="/static/ckeditor/ckeditor/ckeditor.js"></script>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Blog Template for Bootstrap</title>
+    <style>
+        body {
+            padding-top: 80px;
+            padding-bottom: 40px;
+            color: #5a5a5a;
+        }
+
+
+/* 下面是左侧导航栏的代码 */
+        .sidebar {
+            position: fixed;
+            top: 50px;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+            display: block;
+            padding: 18px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background-color: #ddd;
+            border-right: 0px solid #eee;
+        }
+        .rsidebar {
+            position: fixed;
+            top: 50px;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+            display: block;
+            padding: 0px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background-color: #fff;
+            border-right: 0px; 
+            left: 16px; 
+
+        }
+
+        .nav-sidebar {
+            margin-right: -21px;
+            margin-bottom: 20px;
+            margin-left: -20px;
+        }
+
+        .nav-sidebar > li > a {
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        .nav-sidebar > .active > a,
+        .nav-sidebar > .active > a:hover,
+        .nav-sidebar > .active > a:focus {
+            color: #fff;
+            background-color: #428bca;
+        }
+        a{text-decoration: none}
+        a:hover {text-decoration: none}
+        a:active {color: #fff}
+        a:visited {text-decoration: none}  
+        .demo {display: inline-block;*display: inline;*zoom: 1;width: 170px;height: 25px;line-height: 25px;font-size: 16px;overflow: hidden;-ms-text-overflow: ellipsis;text-overflow: ellipsis;white-space: nowrap;}
+        .demo:hover {height: auto;white-space: normal;}
+        
+    </style>
+  </head>
+
+  <body>
+    <!-- 导航栏-->
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-transparent">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/event_manage/">The Cinema Paradiso</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                <li><a href="/event_manage/">电影天堂</a></li>
+                <li  class="active"><a href="/mod/">博文积累</a></li>
+                <li><a  href="logout/">监控系统</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                <!--<li><a href="#">{{user}}</a></li>-->
+                <li><a href="/logout/">登录</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav><br><br>
+    <!--自适应布局-->
+    <div class="container-fluid" >
+    <div class="row">
+    <!--左侧导航栏-->
+    <div onmouseover="scroll()" id="panel" class="col-sm-3 col-md-2 sidebar" >
+      <ul class="nav nav-sidebar">
+      <li ><a href="/mod/"><strong><h3>文章标题</strong></h3></a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+      <ol>
+      {% for article in articles %}
+            
+            <a href="javascript:void(0);" onclick="myFunction({{article.id}})" class="demo" >{{article.title}}</a><hr>
+            <!--<a href={%url 'articlelist' article.id%} class="demo">{{article.title}}</a>-->       
+      {% endfor %}
+      </ol>
+      </ul>
+      <ul class="nav nav-sidebar">
+      <li><a href="#">设置</a></li>
+      <li><a href="#">帮助</a></li>
+      </ul>
+    </div>
+  </div>
+  
+    <!--右侧管理控制台-->
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 rsidebar">  
+      <iframe  src="/articleforeword/" id="myiframe" scrolling="no" frameborder="0" style="width: 100%;" onload="this.height=this.contentWindow.document.documentElement.scrollHeight">      
+      </iframe> 
+      <div id="myiframe1">
+      </div>
+    </div>
+    </div>
+    <script>  
+    function myFunction(id) {  
+        //var str = id;
+        var article_id = new Number;
+        article_id = id;
+        //document.getElementById("myiframe").innerHTML="欢迎来到我的主页"+article_id;
+        //alert("Welcome");
+        //var articleid = new Number;
+        //article_id = id;
+        //context_object_name=(request,article_id);
+        
+        var p = document.getElementById("myiframe");
+
+        p.src="/articlelist/"+article_id;  
+        //p.src="/articlell/";  
+    }  
+    </script>  
+    <script>
+        function scroll(){
+            document.getElementById("panel").style.overflowY="scroll";}
+    </script>  
+  </body>
+</html>

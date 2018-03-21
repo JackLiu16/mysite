@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load staticfiles %}
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <script src="/static/ckeditor/ckeditor/ckeditor.js"></script>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Event Manage Page</title>
+    <style>
+        body {
+        padding-top: 50px;
+        padding-bottom: 10px;
+        color: #5a5a5a;
+        }
+        .carousel {
+            height: 500px;
+            margin-bottom: 60px;
+        }
+
+        .carousel .item {
+            height: 500px;
+            background-color: #000;
+        }
+
+        .carousel .item img {
+            width: 100%;
+        }
+        img:hover{box-shadow:0px 0px 12px 0px  #666;}
+        a{text-decoration: none;}
+        a:hover {text-decoration: none;}
+    </style>
+    <title>可视监控</title>
+</head>
+<body>
+    {% csrf_token %}
+    {% load staticfiles %}
+    <!-- 导航栏-->
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-transparent">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/event_manage/">The Cinema Paradiso</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                <li><a href="/event_manage/">电影天堂</a></li>
+                <li><a  href="/mod/">博文积累</a></li>
+                <li class="active"><a  href="/modtool/">监控系统</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">{{user}}</a></li>
+                <li><a href="/logout/">退出</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav><br>
+    
+    <!--网站缩略图-->
+    <div class="container">
+    <h1> 网络数据可视化</h1><hr>
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+            <a href="/echart1/" target=_blank class="thumbnail">
+                <img src="{% static "images/pstar.jpg" %}" style="height: 180px; width: 100%; display: block;" alt="">
+            </a>
+            <div class="caption">
+                <p>模块一 <a href="/echart1/"  target=_blank>分布图</a></p>
+            </div>  
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="/echart2/" target=_blank class="thumbnail">
+                <img src="{% static "images/pflow.jpg" %}" style="height: 180px; width: 100%; display: block;" alt="">
+            </a>
+            <div class="caption">
+                <p>模块二 <a href="/echart2/" target=_blank>流量图</a></p>
+            </div>  
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="/echart1/" target=_blank class="thumbnail">
+                <img src="{% static "images/pstar.jpg" %}" style="height: 180px; width: 100%; display: block;" alt="">
+            </a>
+            <div class="caption">
+                <p>模块三 <a href="/echart1/"  target=_blank>分布图</a></p>
+            </div>  
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="/echart2/" target=_blank class="thumbnail">
+                <img src="{% static "images/pflow.jpg" %}" style="height: 180px; width: 100%; display: block;" alt="">
+            </a>
+            <div class="caption">
+                <p>模块四 <a href="/echart2/" target=_blank>流量图</a></p>
+            </div>  
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="/echart1/" target=_blank class="thumbnail">
+                <img src="{% static "images/pstar.jpg" %}" style="height: 180px; width: 100%; display: block;" alt="">
+            </a>
+            <div class="caption">
+                <p>模块五 <a href="/echart1/"  target=_blank>分布图</a></p>
+            </div>  
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="/echart2/" target=_blank class="thumbnail">
+                <img src="{% static "images/pflow.jpg" %}" style="height: 180px; width: 100%; display: block;" alt="">
+            </a>
+            <div class="caption">
+                <p>模块六 <a href="/echart2/" target=_blank>流量图</a></p>
+            </div>  
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="/echart1/" target=_blank class="thumbnail">
+                <img src="{% static "images/pstar.jpg" %}" style="height: 180px; width: 100%; display: block;" alt="">
+            </a>
+            <div class="caption">
+                <p>模块七 <a href="/echart1/"  target=_blank>分布图</a></p>
+            </div>  
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="/echart2/" target=_blank class="thumbnail">
+                <img src="{% static "images/pflow.jpg" %}" style="height: 180px; width: 100%; display: block;" alt="">
+            </a>
+            <div class="caption">
+                <p>模块八 <a href="/echart2/" target=_blank>流量图</a></p>
+            </div>  
+        </div>
+        
+    </div><hr>
+    <footer>
+    <p class="pull-right"><a href="#top">回到顶部</a></p>
+    <p>&copy; 2017 华奇 </p>
+    </footer>   
+    </div>
+</body>
+</html>

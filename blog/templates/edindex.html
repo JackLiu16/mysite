@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="/static/ckeditor/ckeditor/ckeditor.js"></script>
+    <title>ckeditor</title>
+</head>
+<body>
+<div>
+    <h1>HELLO</h1>
+    {% for ak in Articles %}
+      <h2>
+          <ul>
+            <li>
+            <a href=#>{{ak.content|safe}}</a>
+            </li>
+          </ul>
+      </h2>
+      <!--<p>{{ acticl.timestamp | date:"1,F jS"}}</p>-->
+    {% endfor %}
+</div>
+</body>
+</html>

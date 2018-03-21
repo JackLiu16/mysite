@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load staticfiles %}  
+        {% load bootstrap3 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}          
+    <title></title>
+    <style type="text/css">
+        body {
+
+            padding-top: 0px;
+            padding-bottom: 20px;
+            padding-right: 30px;
+            padding-left: 10px;
+            color: #5a5a5a;
+        }
+        .cover {
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            overflow: hidden;
+            border: 10px ridge #666;
+            text-align:center;
+        }
+        div{opacity:0.08;
+        text-align:center;}
+        h1{text-align:center;}
+    </style>
+</head>
+<body>
+
+    <h1>欢迎来到博客园</h1>
+    <div class="cover" class="pull-right">      
+        <img alt="" src="{% static "images/6.jpg" %}" style="height: 100%; width:100%; display: block;">
+    </div>
+</body>
+</html>
